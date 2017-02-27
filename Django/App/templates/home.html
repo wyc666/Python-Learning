@@ -1,0 +1,13 @@
+{% extends "default.html" %}
+
+{% block content %}
+<div class="jumbotron">
+    <!--<h1>Hello, world!</h1>-->
+    {% for bbs in bbs_list %}
+    <a href="bbs_detail/{{bbs.id}}"><p> {{bbs.title}} </p></a>
+    <br>
+    <p> {{bbs.summary}} </p>
+    <hr>
+    {% endfor %}
+</div>
+{% endblock %}
