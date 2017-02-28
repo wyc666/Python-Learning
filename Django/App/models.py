@@ -50,3 +50,21 @@ class User(models.Model):
     #
     def __unicode__(self):
         return self.user.username
+
+class Comment(models.Model):
+    # 评论内容
+    content = models.TextField()
+    # 帖子
+    bbs = models.ForeignKey('BBS')
+    # 用户
+    user = models.ForeignKey('User')
+    # 时间
+    submit_at = models.DateTimeField()
+    # 赞同数量
+    support_amount = models.IntegerField()
+    # 不赞同数量
+    oppose_amount = models.IntegerField()
+
+    # 默认返回评论内容
+    def __unicode__(self):
+        return self.content
